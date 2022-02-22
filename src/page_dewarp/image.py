@@ -8,7 +8,7 @@ from cv2 import resize as cv2_resize
 from scipy.optimize import minimize
 
 from .debug_utils import debug_show
-from .dewarp import RemappedImage
+from .dewarp import RemappedImage, RemappedImageCustomized
 from .mask import Mask
 from .optimise import optimise_params
 from .options import cfg
@@ -191,8 +191,8 @@ class WarpedImageCustomized:
             self.written = True
 
     def threshold(self, page_dims, params):
-        remap = RemappedImage(self.stem, self.cv2_img, self.small, page_dims, params)
-        self.outfile = remap.threshfile
+        remap = RemappedImageCustomized(self.stem, self.cv2_img, self.small, page_dims, params)
+        self.outfile = remap.img
 
     def iteratively_assemble_spans(self):
         """
