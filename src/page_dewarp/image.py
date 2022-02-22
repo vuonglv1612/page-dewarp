@@ -219,7 +219,7 @@ class WarpedImageCustomized:
 
     @property
     def stem(self):
-        return self.file_path.stem
+        return "stem"
 
     def resize_to_screen(self, copy=False):
         height, width = self.cv2_img.shape[:2]
