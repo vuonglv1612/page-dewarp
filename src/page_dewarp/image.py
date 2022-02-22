@@ -154,10 +154,9 @@ class WarpedImageCustomized:
 
     def __init__(self, cv2_img):
         self.cv2_img = cv2_img
-        self.file_path = Path(imgfile).resolve()
+        self.file_path = ""  # ignore
         self.small = self.resize_to_screen()
         size, resized = self.size, self.resized
-        print(f"Loaded {self.basename} at {size=} --> {resized=}")
         if cfg.debug_lvl_opt.DEBUG_LEVEL >= 3:
             debug_show(self.stem, 0.0, "original", self.small)
 
